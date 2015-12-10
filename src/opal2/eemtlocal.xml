@@ -5,26 +5,6 @@
     <info xsd:type="xsd:string"> <![CDATA[ /home/eemt/git/eemt/opal2-wrapper [DEM_file_name] ]]> </info>
 
     <types>
-        <flags>
-            <flag>
-                <id>debug</id>
-                <tag>-D</tag>
-                <textDesc>a debug run</textDesc>
-                <default>false</default>
-            </flag>
-        </flags>
-        <taggedParams>
-            <param>
-                <id>DEMsource</id>
-                <tag>-d</tag>
-                <paramType>STRING</paramType>
-                <value>local</value>
-                <value>opentopo</value>
-                <value>ned10m</value>
-                <value>ned30m</value>
-                <textDesc>specify dem source</textDesc>
-            </param>
-        </taggedParams>
         <untaggedParams>
             <param>
                 <id>DEMFile</id>

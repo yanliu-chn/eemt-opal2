@@ -1,0 +1,42 @@
+<appConfig xmlns="http://nbcr.sdsc.edu/opal/types"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata  appName="simpletest">
+    <usage><![CDATA[Compute EEMT model using local DEM ]]></usage>
+    <info xsd:type="xsd:string"> <![CDATA[ /home/eemt/git/eemt/opal2-wrapper [DEM_file_name] ]]> </info>
+
+    <types>
+        <flags>
+            <flag>
+                <id>debug</id>
+                <tag>-D</tag>
+                <textDesc>a debug run</textDesc>
+                <default>false</default>
+            </flag>
+        </flags>
+        <taggedParams>
+            <param>
+                <id>DEMsource</id>
+                <tag>-d</tag>
+                <paramType>STRING</paramType>
+                <value>local</value>
+                <value>opentopo</value>
+                <value>ned10m</value>
+                <value>ned30m</value>
+                <textDesc>specify dem source</textDesc>
+            </param>
+        </taggedParams>
+        <untaggedParams>
+            <param>
+                <id>DEMFile</id>
+                <paramType>FILE</paramType>
+                <ioType>INPUT</ioType>
+                <required>true</required>
+                <textDesc><![CDATA[Input DEM file to EEMT model.]]></textDesc>
+            </param>
+        </untaggedParams>
+    </types>
+
+  </metadata>
+  <binaryLocation>/srv/eemt-opal2/bin/test.sh</binaryLocation>
+  <parallel>false</parallel>
+</appConfig>
