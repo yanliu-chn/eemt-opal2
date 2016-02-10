@@ -1,0 +1,22 @@
+<appConfig xmlns="http://nbcr.sdsc.edu/opal/types"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata  appName="solot">
+    <usage><![CDATA[Compute Sol model using online DEM e.g. from OpenTopo ]]></usage>
+    <info xsd:type="xsd:string"> <![CDATA[ /home/eemt/sol/opal2-wrapper-urldem [DEM_url] ]]> </info>
+
+    <types>
+        <untaggedParams>
+            <param>
+                <id>DEMUrl</id>
+                <paramType>STRING</paramType>
+                <ioType>INPUT</ioType>
+                <required>true</required>
+                <textDesc><![CDATA[Input DEM URL to Sol model.]]></textDesc>
+            </param>
+        </untaggedParams>
+    </types>
+
+  </metadata>
+  <binaryLocation>/home/eemt/sol/opal2-wrapper-urldem</binaryLocation>
+  <parallel>false</parallel>
+</appConfig>

@@ -1,0 +1,22 @@
+<appConfig xmlns="http://nbcr.sdsc.edu/opal/types"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata  appName="sollocal">
+    <usage><![CDATA[Compute Sol model using an uploaded DEM ]]></usage>
+    <info xsd:type="xsd:string"> <![CDATA[ /home/eemt/sol/opal2-wrapper [DEM_file_name] ]]> </info>
+
+    <types>
+        <untaggedParams>
+            <param>
+                <id>DEMFile</id>
+                <paramType>FILE</paramType>
+                <ioType>INPUT</ioType>
+                <required>true</required>
+                <textDesc><![CDATA[Input DEM file to EEMT model.]]></textDesc>
+            </param>
+        </untaggedParams>
+    </types>
+
+  </metadata>
+  <binaryLocation>/home/eemt/sol/opal2-wrapper</binaryLocation>
+  <parallel>false</parallel>
+</appConfig>

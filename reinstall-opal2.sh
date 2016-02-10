@@ -23,6 +23,7 @@ $CATALINA_HOME/bin/catalina.sh stop
 srcdir=/srv/eemt-opal2/src
 echo "deploying tomcat ..."
 cp $srcdir/tomcat/tomcat-users.xml $CATALINA_HOME/conf/
+cp $srcdir/tomcat/web.xml $CATALINA_HOME/conf/ # turn on dir listing
 mkdir -p $CATALINA_HOME/deploy
 echo "customizing opal2 config ..."
 cp $srcdir/opal2/build.properties $OPAL_HOME/
