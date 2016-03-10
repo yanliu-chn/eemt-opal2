@@ -13,6 +13,16 @@
                 <required>true</required>
                 <textDesc><![CDATA[Input DEM URL to Sol model.]]></textDesc>
             </param>
+<!-- OUTPUT config does not seem to have any effect
+            <param>
+                <id>outputzip</id>
+                <paramType>FILE</paramType>
+                <ioType>OUTPUT</ioType>
+                <required>true</required>
+                <default>output.zip</default>
+                <textDesc><![CDATA[Output zip file name]]></textDesc>
+            </param>
+-->
         </untaggedParams>
     </types>
 

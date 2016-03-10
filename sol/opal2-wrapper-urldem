@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# This script starts up a local EEMT instance, and uses SSH to
+# submit workers on the OSG system.
+
+set -e
+
+# settings
+LOCAL_WORK_DIR=`readlink -f .`
+LOCAL_EEMT_INSTALL=/home/eemt/sol
+export TCP_LOW_PORT=20000
+export TCP_HIGH_PORT=60000 
+
+# safty check
+if [ -e run-workflow ]; then
+    echo "Do not run from the eemt checkout!"
+    exit 1
+fi
+
+echo "[`date`] workflow starting..."
+t0=`date +%s`
+# arguments
+DEMURL=$1
+DEMTAR=`basename $DEMURL`
+cd /tmp
+wget $DEMURL
+[ $? -ne 0 ] && echo "ERROR: can't download DEM $DEMURL." && exit 1
+echo "[`date`] downloaded DEM from $DEMURL"
+
+cd $LOCAL_WORK_DIR/
+tar xfz /tmp/$DEMTAR
+DEM=$(basename `ls *.tif | head -n 1`) 
+rm -fr /tmp/$DEMTAR
+
+cd $LOCAL_EEMT_INSTALL
+
+t1=`date +%s`
+# run the workflow
+echo "[`date`] starting the workflow..."
+./run-workflow \
+  --name SOL_OPAL2 \
+  -O $LOCAL_WORK_DIR \
+   $LOCAL_WORK_DIR/$DEM
+
+retcode=$?
+t2=`date +%s`
+if [ $retcode -eq 0 ]; then
+	echo "[`date`] archiving output ..."
+	cd $LOCAL_WORK_DIR && zip -r output.zip global insol
+fi
+echo
+echo "[`date`] Finished, workflow returned exit code $retcode. Output files in $LOCAL_WORK_DIR . Output archive in $LOCAL_WORK_DIR/output.zip ."
+echo "Time in sec: download `expr $t1 \- $t0` ; workflow `expr $t2 \- $t1`"
+exit $retcode
+
