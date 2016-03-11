@@ -21,8 +21,15 @@ echo "[`date`] workflow starting..."
 t0=`date +%s`
 # arguments
 DEMURL=$1
-DEMTAR=`basename $DEMURL`
+zipfile="output.zip"
+if [ ! -z "$2" ]; then
+	oname="`basename $2`"
+	[ "`basename $oname .zip`" == "${oname}" ] && oname="${oname}.zip"
+	zipfile="$oname"
+fi
+
 cd /tmp
+DEMTAR=`basename $DEMURL`
 wget $DEMURL
 [ $? -ne 0 ] && echo "ERROR: can't download DEM $DEMURL." && exit 1
 echo "[`date`] downloaded DEM from $DEMURL"
@@ -46,10 +53,10 @@ retcode=$?
 t2=`date +%s`
 if [ $retcode -eq 0 ]; then
 	echo "[`date`] archiving output ..."
-	cd $LOCAL_WORK_DIR && zip -r output.zip global insol
+	cd $LOCAL_WORK_DIR && zip -r $zipfile global insol
 fi
 echo
-echo "[`date`] Finished, workflow returned exit code $retcode. Output files in $LOCAL_WORK_DIR . Output archive in $LOCAL_WORK_DIR/output.zip ."
+echo "[`date`] Finished, workflow returned exit code $retcode. Output files in $LOCAL_WORK_DIR . Output archive in $LOCAL_WORK_DIR/$zipfile ."
 echo "Time in sec: download `expr $t1 \- $t0` ; workflow `expr $t2 \- $t1`"
 exit $retcode
 
