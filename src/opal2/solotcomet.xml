@@ -1,0 +1,30 @@
+<appConfig xmlns="http://nbcr.sdsc.edu/opal/types"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata  appName="solotcomet">
+    <usage><![CDATA[Compute Sol model using online DEM e.g. from OpenTopo for comet.sdsc.edu job submission ]]></usage>
+    <info xsd:type="xsd:string"> <![CDATA[ /home/eemt/realgit/sol-ot-comet/opal2-wrapper-urldem [DEM_url] ]]> </info>
+
+    <types>
+        <untaggedParams>
+            <param>
+                <id>DEMUrl</id>
+                <paramType>STRING</paramType>
+                <ioType>INPUT</ioType>
+                <required>true</required>
+                <textDesc><![CDATA[Input DEM URL to Sol model.]]></textDesc>
+            </param>
+            <param>
+                <id>outputzip</id>
+                <paramType>FILE</paramType>
+                <ioType>OUTPUT</ioType>
+                <required>true</required>
+                <default>output.zip</default>
+                <textDesc><![CDATA[Output zip file name]]></textDesc>
+            </param>
+        </untaggedParams>
+    </types>
+
+  </metadata>
+  <binaryLocation>/home/eemt/realgit/sol-ot-comet/opal2-wrapper-urldem</binaryLocation>
+  <parallel>false</parallel>
+</appConfig>
