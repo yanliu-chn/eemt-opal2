@@ -53,7 +53,7 @@ retcode=$?
 t2=`date +%s`
 if [ $retcode -eq 0 ]; then
 	echo "[`date`] archiving output ..."
-	cd $LOCAL_WORK_DIR && zip -r $zipfile global insol
+	cd $LOCAL_WORK_DIR && zip -r $zipfile global/monthly insol/monthly
 fi
 echo
 echo "[`date`] Finished, workflow returned exit code $retcode. Output files in $LOCAL_WORK_DIR . Output archive in $LOCAL_WORK_DIR/$zipfile ."

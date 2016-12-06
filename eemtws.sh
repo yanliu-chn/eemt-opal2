@@ -3,7 +3,7 @@
 deploydir=/srv/opal2-deploy
 srcdir=/srv/eemt-opal2/src
 
-wslist="solot eemtlocal sollocal simpletest"
+wslist="solotcomet solot eemtlocal sollocal simpletest"
 
 function eemt_uninstall {
 	for ws in $wslist; do
