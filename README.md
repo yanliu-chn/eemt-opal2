@@ -21,7 +21,6 @@ To deploy onto a new machine, please:
 # opal2 env
 export JAVA_HOME=/srv/jdk1.7.0_80
 export ANT_HOME=/srv/apache-ant-1.9.6
-#export CATALINA_HOME=/srv/apache-tomcat-7.0.65
 export CATALINA_HOME=/srv/apache-tomcat-6.0.44
 export OPAL_HOME=/srv/opal-ws-2.5
 export PATH=$ANT_HOME/bin:$JAVA_HOME/bin:$PATH
